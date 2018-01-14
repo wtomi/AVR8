@@ -13,12 +13,12 @@
 static const uint32_t PRESCALER = 8;
 static const uint32_t TICKS_PER_MS = F_CPU / PRESCALER / 1000;
 static const uint8_t MAX_COUNT = 0xFF;
-static uint32_t numberOfOverflows;
-static uint32_t overflowCounter;
+static volatile uint32_t numberOfOverflows;
+static volatile uint32_t overflowCounter;
 
 static const uint8_t MAX_OVERFLOW_LISTENERS = 5;
 static void (*globalOverflowListeners[MAX_OVERFLOW_LISTENERS])();
-static uint8_t overflowListenerCount = 0;
+static volatile uint8_t overflowListenerCount = 0;
 static void (*globalCompareAListener)();
 static void (*globalIntervalListener)();
 

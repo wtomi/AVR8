@@ -20,8 +20,8 @@ static const uint32_t LONG_BEEP = 1000;
 
 IntervalTimer IntervalTimer::instance;
 
-static bool isRound = true; 
-static uint16_t roundCount = 0;
+static volatile bool isRound = true; 
+static volatile uint16_t roundCount = 0;
 
 void buttonStopListener() {
 	IntervalTimer *intervalTimer = IntervalTimer::getInstance();

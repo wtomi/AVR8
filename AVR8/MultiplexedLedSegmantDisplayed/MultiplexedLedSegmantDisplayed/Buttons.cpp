@@ -14,9 +14,9 @@ void (* globalListenerButton3)();
 
 Buttons Buttons::instance;
 
-static uint8_t overflowCount;
+static volatile uint8_t overflowCount;
 static const uint8_t OVERFLOW_READ = 80; //waiting about 20 ms before reading buttons' states
-static bool waitForRead = false; 
+static volatile bool waitForRead = false; 
 
 void overflowListener() {
 	if(waitForRead) {

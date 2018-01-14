@@ -12,7 +12,7 @@ Display Display::instance;
 static uint8_t numbers[] = {4, 3, 2, 1};
 static MultiplexedLedSegnamntDisplay display(&PORTC, &DDRC, &PORTD, &DDRD, numbers);
 
-static bool faded = false;
+static volatile bool faded = false;
 
 void displayNextNumber() {
 	display.displayNextNumber();
