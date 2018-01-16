@@ -104,7 +104,7 @@ void buttonStartListener() {
 		case IntervalTimer::READY:
 			intervalTimer->buzzer->beep(SHORT_BEEP);
 			intervalTimer->rtc->start();
-			intervalTimer->display->setSeconds(intervalTimer->roundSeconds - intervalTimer->rtc->getSeconds());
+			intervalTimer->display->setSeconds((isRound ? intervalTimer->roundSeconds : intervalTimer->breakSeconds) - intervalTimer->rtc->getSeconds());
 			intervalTimer->state = IntervalTimer::WORKING;
 			break;
 		case IntervalTimer::WORKING:
